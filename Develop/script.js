@@ -8,44 +8,35 @@ var upperCasedCharacters = ['A','B','C','D','E','F','G','H','I','J','K','L','M',
 
 // Function for obtaining user input for password options
 function getPasswordOptions() {
-  // 3)
-  // Variable to store length of password from user input
+  
   var length = parseInt(
     prompt('How many characters would you like your password to contain?'),
     10
   );
-  // Conditional statement to check if password length is a number. Prompts end if this evaluates false
   if (Number.isNaN(length)) {
     alert('Password length must be provided as a number');
     return null;
   }
-  // Conditional statement to check if password length is at least 8 characters long. Prompts end if this evaluates false
   if (length < 8) {
     alert('Password length must be at least 8 characters');
     return null;
   }
-  // Conditional statement to check if password length is less than 128 characters long. Prompts end if this evaluates false
   if (length > 128) {
     alert('Password length must be less than 128 characters');
     return null;
   }
-  // Variable to store boolean regarding the inclusion of special characters
   var hasSpecialCharacters = confirm(
     'Click OK to confirm including special characters.'
   );
-  // Variable to store boolean regarding the inclusion of numeric characters
   var hasNumericCharacters = confirm(
     'Click OK to confirm including numeric characters.'
   );
-  // Variable to store boolean regarding the inclusion of lowercase characters
   var hasLowercaseCharacters = confirm(
     'Click OK to confirm including lowercase characters.'
   );
-  // Variable to store boolean regarding the inclusion of uppercase characters
   var hasUppercaseCharacters = confirm(
     'Click OK to confirm including uppercase characters.'
   );
-  // Conditional statement to check if user does not include any types of characters. Password generator ends if all four variables evaluate to false
   if (hasSpecialCharacters) {
   }else if (hasNumericCharacters) {
   }else if (hasLowercaseCharacters) {
@@ -78,7 +69,6 @@ function generatePassword() {
   var options = getPasswordOptions();
   // Create an empty array
   var currentArr = new Array()
-  // Conditional Statement that concatinates a new array
   if (options.hasSpecialCharacters) {
     currentArr= currentArr.concat(specialCharacters)
   }
@@ -92,7 +82,6 @@ function generatePassword() {
     currentArr= currentArr.concat(upperCasedCharacters)
   }
   console.log(currentArr)
-  // Generate random string password from new array
   let pass = ""
   let i = 0
   while (i < options.length) {
